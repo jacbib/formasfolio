@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacky Bibliowicz — Portfolio Index</title>
+<meta name="description" content="Selected work index: AI for architecture and design at Autodesk Research, real-time data visualization for built environments, and creative work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf9f5;
+    --paper-2: #f2f0e9;
+    --ink: #16150f;
+    --ink-2: #413f36;
+    --ink-3: #6f6c5e;
+    --hairline: #d5d2c4;
+    --hairline-2: #b9b5a3;
+    --accent: #d5451b;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'Archivo', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'IBM Plex Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline-2);
+    transition: border-color .15s ease, color .15s ease;
+  }
+  a:hover, a:focus-visible { color: var(--accent); border-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .sheet {
+    max-width: 1040px;
+    margin: 0 auto;
+    border-left: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+    background: var(--paper);
+    min-height: 100vh;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 56px 56px 0;
+  }
+
+  .meta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 48px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .meta-top .accent { color: var(--accent); }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(38px, 6.2vw, 62px);
+    line-height: 1.04;
+    letter-spacing: -.012em;
+    max-width: 14ch;
+  }
+  h1 .amp { font-style: italic; font-weight: 400; color: var(--ink-3); }
+
+  .tagline {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 18px 0 26px;
+  }
+
+  .intro {
+    font-size: 17px;
+    line-height: 1.62;
+    max-width: 62ch;
+    color: var(--ink-2);
+    border-left: 2px solid var(--ink);
+    padding-left: 20px;
+  }
+
+  /* ---------- Sections ---------- */
+  .era {
+    padding: 56px 56px 8px;
+    border-top: 1px solid var(--ink);
+  }
+  .era:first-of-type { border-top: none; margin-top: 44px; }
+
+  .era-head {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 34px;
+  }
+  .era-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: .1em;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .era-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(24px, 3.4vw, 32px);
+    letter-spacing: -.01em;
+  }
+  .era-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-left: auto;
+    text-align: right;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+
+  /* ---------- Works ---------- */
+  .work {
+    display: grid;
+    grid-template-columns: 1fr 236px;
+    gap: 36px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--hairline);
+    align-items: start;
+  }
+  .work:last-child { border-bottom: none; }
+
+  .work-body { min-width: 0; }
+
+  .work-line {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .idx {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--ink-3);
+    flex-shrink: 0;
+  }
+  .work h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 21px;
+    letter-spacing: -.005em;
+    line-height: 1.25;
+  }
+  .dates {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    color: var(--ink-3);
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .work p {
+    margin-top: 11px;
+    font-size: 15px;
+    color: var(--ink-2);
+    max-width: 58ch;
+  }
+
+  .links {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .links a {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    width: fit-content;
+    display: inline-flex;
+    gap: 9px;
+    align-items: baseline;
+    min-height: 32px;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+  .links a::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* ---------- Image column ---------- */
+  .fig { min-width: 0; }
+  .fig img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--hairline-2);
+    filter: saturate(.88) contrast(1.02);
+    transition: filter .25s ease, transform .25s ease;
+  }
+  .work:hover .fig img, .work:focus-within .fig img {
+    filter: saturate(1.05) contrast(1.03);
+  }
+  .fig-cap {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    color: var(--ink-3);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Gallery (no single image available) ---------- */
+  .works-figs {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    max-width: 430px;
+  }
+  .works-figs a { border: none; }
+  .works-figs a:hover { border: none; }
+  .works-figs img {
+    width: 100%;
+    height: 84px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--hairline-2);
+    filter: saturate(.88);
+  }
+  .works-figs small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .05em;
+    color: var(--ink-3);
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ---------- Closing band (former title block) ---------- */
+  .closing {
+    border-top: 2px solid var(--ink);
+    margin: 64px 56px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--paper-2);
+    border-left: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .closing-cell {
+    padding: 20px 24px 22px;
+    min-width: 0;
+  }
+  .closing-cell + .closing-cell {
+    border-left: 1px solid var(--hairline-2);
+  }
+  .closing-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .closing-value {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 15.5px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .closing-value a {
+    border-bottom: 1px solid var(--hairline-2);
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .closing-value a:hover, .closing-value a:focus-visible { color: var(--accent); border-color: var(--accent); }
+
+  .colophon {
+    padding: 22px 56px 44px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    color: var(--ink-3);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .colophon a { font-family: var(--mono); }
+
+  /* ---------- Print ---------- */
+  @media print {
+    :root { --paper: #fff; }
+    .sheet { border: none; max-width: none; }
+    header, .era, .colophon { padding-left: 0; padding-right: 0; }
+    .era { padding-top: 28px; break-inside: avoid-page; }
+    .work { break-inside: avoid; }
+    .fig img, .works-figs img { filter: none; }
+    a { border: none; }
+    .closing { margin: 28px 0 0; }
+    @page { margin: 14mm; }
+  }
+
+  /* ---------- Small screens ---------- */
+  @media (max-width: 760px) {
+    header, .era, .colophon { padding-left: 24px; padding-right: 24px; }
+    .closing { margin-left: 24px; margin-right: 24px; grid-template-columns: 1fr; }
+    .closing-cell + .closing-cell { border-left: none; border-top: 1px solid var(--hairline-2); }
+    .work { grid-template-columns: 1fr; gap: 20px; }
+    .fig img { height: 200px; }
+    .era-head { flex-wrap: wrap; }
+    .era-sub { margin-left: 0; text-align: left; width: 100%; }
+    .dates { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <div class="meta-top">
+      <span>Portfolio Index — Selected Work</span>
+      <span>Sheet <span class="accent">01</span> · Rev A</span>
+    </div>
+
+    <h1>Jacobo (Jacky) Bibliowicz</h1>
+    <div class="tagline">AI for architecture and design</div>
+
+    <p class="intro">
+      Research science leader with more than twenty years of work at the intersection of
+      AI, computer graphics, and the built environment — most recently at Autodesk Research,
+      where the work ranged from generative AI systems exploring neuroarchitecture and
+      emotion in spatial design, to real-time data pipelines connecting sensor networks to
+      3D cities and structures like the MX3D printed bridge. A consistent thread runs through
+      all of it: connecting technology to human experience in physical and built space.
+      The links below are the work itself.
+    </p>
+  </header>
+
+  <!-- ================= ERA 1 ================= -->
+  <section class="era" id="autodesk">
+    <div class="era-head">
+      <span class="era-num">01</span>
+      <h2 class="era-title">Autodesk Research</h2>
+      <span class="era-sub">AI, spatial design &amp; neuroscience<br>Toronto · 2023 – 2026</span>
+    </div>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">01.1</span>
+          <h3>Eudemonial Spaces</h3>
+          <span class="dates">2025</span>
+        </div>
+        <p>
+          An interactive generative-AI art installation exploring spaces through the lens of
+          neuroarchitecture. A camera reads the room in front of it and a generative system
+          composes a new built environment in real time — natural light, views, nature-coloured
+          tones — so that the guests' bodies and the objects around them become the input to
+          the architecture. Presented at Encoding Experience in Boston and San Francisco,
+          featured on the Autodesk Research blog, and accepted as a booth at Autodesk's 2026
+          internal technology conference.
+        </p>
+        <div class="links">
+          <a href="https://www.research.autodesk.com/blog/bridging-design-human-sciences-and-technology-with-ai-art/" target="_blank" rel="noopener">Bridging design, human sciences, and technology with AI art</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://www.research.autodesk.com/app/uploads/2025/06/jacky-video-grab-use.png" alt="Frame from the Eudemonial Spaces installation" loading="lazy">
+        <div class="fig-cap">Fig. 1 — Eudemonial Spaces</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">01.2</span>
+          <h3>Encoding Experience</h3>
+          <span class="dates">2025</span>
+        </div>
+        <p>
+          A human-centered exploration of the built environment through conversation,
+          emotion, and AI. Speech recordings of single-threaded dinner conversations were
+          broken down into per-speaker remarks, summarized for each participant, and scored
+          for emotion and sentiment. Includes a live sentiment-analysis demonstration
+          delivered at ANFA 2025.
+        </p>
+        <div class="links">
+          <a href="https://www.research.autodesk.com/projects/aec-design-encoding-experience-human-centered-built-environment/" target="_blank" rel="noopener">Project page — context &amp; overview</a>
+          <a href="https://www.research.autodesk.com/blog/encoding-experience-conversations-on-design-emotion-and-ai/" target="_blank" rel="noopener">Conversation analysis, part one</a>
+          <a href="https://www.research.autodesk.com/blog/conversations-on-design-emotion-and-ai-part-two/" target="_blank" rel="noopener">Conversation analysis, part two</a>
+          <a href="https://keanw.com/2025/09/anfa-2025-days-2-3.html" target="_blank" rel="noopener">Sentiment analysis demo — ANFA 2025</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://www.research.autodesk.com/app/uploads/2025/06/encoding-experience-boston-table-setting-1512x1008.jpg" alt="Table setting from the Encoding Experience installation" loading="lazy">
+        <div class="fig-cap">Fig. 2 — Boston table setting</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">01.3</span>
+          <h3>From Steps to Stories — The Bentway Project</h3>
+          <span class="dates">2023 – 2024</span>
+        </div>
+        <p>
+          An exploration of human experience of public spaces, exploring ways to capture
+          individual experiences of the built environment. Led delivery of instrumented
+          walkshop helmets for data capture at The Bentway park in Toronto and at Autodesk
+          University 2023 — covering networking, Bluetooth sensor communication, and data
+          encryption. Built the video pipeline that anonymized the helmet footage and
+          highlighted facial features for the final art installation, showcased at The
+          Bentway, AU 2023, and Autodesk TechX 2024.
+        </p>
+        <div class="links">
+          <a href="https://www.research.autodesk.com/projects/bentway/" target="_blank" rel="noopener">Project page</a>
+          <a href="https://www.youtube.com/watch?v=4NTytIHnolY" target="_blank" rel="noopener">Part 2 of the video</a>
+          <a href="https://www.acadia.org/conferences/past-conferences/acadia-2024-design-change" target="_blank" rel="noopener">Published in ACADIA 2024 — Projects Proceedings, pp. 167–172</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://www.research.autodesk.com/app/uploads/2024/05/Bentway-Toronto.png" alt="The Bentway, Toronto" loading="lazy">
+        <div class="fig-cap">Fig. 3 — The Bentway, Toronto</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= ERA 2 ================= -->
+  <section class="era" id="dasher360">
+    <div class="era-head">
+      <span class="era-num">02</span>
+      <h2 class="era-title">Dasher360 &amp; Data360</h2>
+      <span class="era-sub">Real-time data visualization<br>Toronto · 2017 – 2023</span>
+    </div>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">02.1</span>
+          <h3>Dasher360 &amp; Data360</h3>
+          <span class="dates">2017 – 2023</span>
+        </div>
+        <p>
+          Autodesk Research's digital twin platform for buildings.  Dasher360 is the front
+          end that loads sensor data from the Data360 database and overlays it on BIM models.
+          Data360 is a Hadoop-based time-series database that powers it. These and their
+          associated projects have reached the end of their life and are no longer on
+          Autodesk's website — the best remaining sources are the links below and on the companion blog.
+        </p>
+      </div>
+      <div class="fig">
+        <img src="https://i.ytimg.com/vi/zyYEQmhz2H4/hqdefault.jpg" alt="Dasher360 demo video thumbnail" loading="lazy">
+        <div class="fig-cap">Dasher360 demo</div>
+      </div>
+      <div class="links">
+        <a href="https://www.youtube.com/watch?v=zyYEQmhz2H4" target="_blank" rel="noopener">Dasher360 demo</a>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">02.2</span>
+          <h3>MX3D Smart Bridge (collaboration with MX3D)</h3>
+          <span class="dates">2018</span>
+        </div>
+        <p>
+          The world's first 3D-printed steel bridge. Defined the network topology for the
+          local Data360 cluster storing the bridge's instrumentation data, implemented remote
+          cluster management over OpenVPN, and supported the team remotely through the Dutch
+          Design Week unveiling and subsequent load experiments with the University of Twente
+          and Imperial College London.
+        </p>
+        <div class="links">
+          <a href="https://mx3d.com/case/mx3d-bridge/" target="_blank" rel="noopener">MX3D case study — MX3D Bridge</a>
+          <a href="https://keanw.com/2018/10/realtime-visualization-of-sensor-data-from-the-mx3d-bridge.html" target="_blank" rel="noopener">Real-time visualization of sensor data</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://keanw.com/wp-content/uploads/tp/6a00d83452464869e2026bdee18a61200c.jpg" alt="MX3D smart bridge sensor network — load cells, strain gauges, microphones, accelerometers, inclinometers" loading="lazy">
+        <div class="fig-cap">Fig. 4 — MX3D smart bridge sensor network</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">02.3</span>
+          <h3>Kingspan IKON (collaboration with Kingspan)</h3>
+          <span class="dates">2020</span>
+        </div>
+        <p>
+          On-site sensor kit provisioning and camera calibration at Kingspan's IKON facility
+          in Ireland. Developed the remote access protocol jointly with Kingspan network
+          engineers, Autodesk Security, and Autodesk Legal.
+        </p>
+        <div class="links">
+          <a href="https://keanw.com/2020/08/project-dasher-at-kingspans-ikon-building.html" target="_blank" rel="noopener">Project Dasher at Kingspan's IKON building</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://keanw.com/wp-content/uploads/tp/6a00d83452464869e2026bde8b11ff200c.png" alt="Kingspan IKON interior in Dasher with sensor data" loading="lazy">
+        <div class="fig-cap">Fig. 5 — IKON in Dasher</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= ERA 3 ================= -->
+  <section class="era" id="other">
+    <div class="era-head">
+      <span class="era-num">03</span>
+      <h2 class="era-title">Other Projects</h2>
+      <span class="era-sub">Beyond the two tracks above</span>
+    </div>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">03.1</span>
+          <h3>OccSim</h3>
+        </div>
+        <p>
+          A stochastic multi-agent simulation of building occupants used to analyze virus
+          transmission risk and to drive generative designs of pathogen-resilient layouts.
+          Co-authored Autodesk Research research.
+        </p>
+        <div class="links">
+          <a href="https://www.research.autodesk.com/publications/designing-a-multi-agent-occupant-simulation-system/" target="_blank" rel="noopener">OccSim — Simulation</a>
+          <a href="https://www.research.autodesk.com/publications/generative-design-for-covid-19-and-future-pathogens-using-stochastic-multi-agent-simulation/" target="_blank" rel="noopener">OccSim — Generative design</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://i.ytimg.com/vi/d0EXbeeTP-8/hqdefault.jpg" alt="Frame from the OccSim paper video — air-based virus transmission simulation" loading="lazy">
+        <div class="fig-cap">OccSim paper video — SIGGRAPH 2021</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">03.2</span>
+          <h3>Project ADA</h3>
+        </div>
+        <p>An Autodesk Research game project for discovering your research persona.  Presented at AU 2025.</p>
+        <div class="links">
+          <a href="https://www.research.autodesk.com/projects/training-ada/" target="_blank" rel="noopener">Project ADA</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://www.research.autodesk.com/app/uploads/2025/09/AD26_AU-WEBPage_Landing_GAME-Thumb-513x342-1.jpg" alt="Project ADA thumbnail" loading="lazy">
+        <div class="fig-cap">Fig. 6 — Project ADA</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">03.3</span>
+          <h3>Project Reframe</h3>
+          <span class="dates">2024</span>
+        </div>
+        <p>
+          A demonstration of animation innovation, presented at the Colombia 4.0 Conference
+          in Bogotá.
+        </p>
+        <div class="links">
+          <a href="https://www.research.autodesk.com/blog/autodesk-demos-project-reframe-at-colombia-4-0-showcasing-animation-innovation/" target="_blank" rel="noopener">Autodesk demos Project Reframe at Colombia 4.0</a>
+        </div>
+      </div>
+      <div class="fig" style="flex:1 1 400px;aspect-ratio:4/3">
+        <img src="https://www.research.autodesk.com/app/uploads/2024/11/colombia-event-reframe-demo.jpg" alt="Project Reframe demo at Colombia 4.0 — Jacky at the control station, left of frame" loading="lazy" style="object-position:left center">
+        <div class="fig-cap">Fig. 7 — Colombia 4.0, Bogotá</div>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-body">
+        <div class="work-line">
+          <span class="idx">03.4</span>
+          <h3>Teatrotaller</h3>
+          <span class="dates">Cornell</span>
+        </div>
+        <p>
+          Directing credits at Cornell University. <em>La vida es sueño</em> (directorial debut), and
+          the <b>world-premiere staging</b> of <em>Una tal Raquel</em>.
+        </p>
+        <div class="links">
+          <a href="https://courses.cit.cornell.edu/spanl301/vidaessueno.jpg" target="_blank" rel="noopener">La vida es sueño — still</a>
+          <a href="http://courses.cit.cornell.edu/spanl301/noches%20de%20amor%20efimero.jpg" target="_blank" rel="noopener">Noches de amor efímero — still</a>
+          <a href="https://courses.cit.cornell.edu/spanl301/una%20tal%20raquel.jpg" target="_blank" rel="noopener">Una tal Raquel — still</a>
+          <a href="https://www.youtube.com/watch?v=MzZZNyl5HcQ" target="_blank" rel="noopener">Una tal Raquel — video</a>
+        </div>
+      </div>
+      <div class="fig">
+        <img src="https://courses.cit.cornell.edu/spanl301/una%20tal%20raquel.jpg" alt="Una tal Raquel production still" loading="lazy">
+        <div class="fig-cap">Fig. 8 — Una tal Raquel</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= CLOSING BAND ================= -->
+  <div class="closing" role="contentinfo">
+    <div class="closing-cell">
+      <span class="closing-label">Profile</span>
+      <span class="closing-value"><a href="https://www.linkedin.com/in/jacobo-bibliowicz/" target="_blank" rel="noopener">linkedin.com/in/jacobo-bibliowicz</a></span>
+    </div>
+    <div class="closing-cell">
+      <span class="closing-label">Index</span>
+      <span class="closing-value">19 links<br>3 sections · 10 works</span>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span>Portfolio Index — Selected Work</span>
+    <span>Sheet 01 · Rev A</span>
+  </div>
+
+</div>
+</body>
+</html>
